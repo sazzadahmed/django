@@ -1,0 +1,11 @@
+<a href="{% url 'polls:publishcreate'%}">Create New </a>
+{% block content %}
+    <h2>Publishers</h2>
+    <ul>
+        {% for publisher in publisher %}
+            <li>{{ publisher.name }}</li>
+            <a href="{% url 'polls:publishupdate' publisher.id %}">Update</a><a href="{% url 'polls:publishdelete' publisher.id %}">Delete</a>
+
+        {% endfor %}
+    </ul>
+{% endblock %}

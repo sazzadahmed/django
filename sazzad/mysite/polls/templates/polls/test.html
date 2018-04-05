@@ -1,0 +1,15 @@
+{% if form %}
+<form action="{% url 'polls:formtesttest'%}" method='post'>
+	{% csrf_token %}
+	{{form.management_form}}
+	{% for frm in form%}
+		{{frm}}
+		<br/>
+	{%  endfor%}
+	<input type="submit" value="clickme">
+</form>
+
+{% endif %}
+{% if abs %}
+	{{ abs }}
+{% endif%}

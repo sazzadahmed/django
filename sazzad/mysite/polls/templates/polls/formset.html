@@ -1,0 +1,10 @@
+
+<form action="{% url 'polls:formtesttest'%}" method="post">
+{% for a in context %}
+	{% csrf_token %}
+	{{ a.as_p }}
+	
+
+{% endfor %}
+<input type="submit" value="click me">
+</form>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="{% url 'polls:update' data.id%}">
+    {% csrf_token %}
+    <input type="text" name="question_text" value="{{data.question_text}}">
+    <input type="submit">
+</form>
+</body>
+</html>
