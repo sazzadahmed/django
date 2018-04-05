@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Create From</title>
+</head>
+<body>
+	{% if not form %}
+	<form method="post" action="{% url 'check:create' %}">
+		{% csrf_token %}
+		<label>Name</label>
+		<input type="text" name="name"><br/><br/>
+		<label> Adress</label>
+		<input type="text" name="address"><br/><br/>
+		<label> Age</label>
+		<input type="number" name="age"><br/><br/>
+		<label>Roll</label>
+		<input type="text" name="roll"><br/><br/>
+		<input type="submit" value="click me">
+	{% elif form %}
+		<form method="post" action="{% url 'check:create' %}">
+			{% csrf_token %}
+			{% for a in form %}
+				{{a.label}}
+				{{a}}<br/><br/>
+			{% endfor%}
+			<input type="submit" name="">
+			
+		</form>
+	{% endif %}
+
+
+	</form>
+
+</body>
+</html>

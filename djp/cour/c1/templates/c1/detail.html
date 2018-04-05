@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> THis is detail page for {{data.name}}</title>
+</head>
+<body>
+
+	<a href="{% url 'c1:create'%}"> Create</a>
+	<a href="{% url 'c1:index'%}">Home</a>
+			<table border=1 style ="border-collapse: collapse;">
+		<tr> <td> ID</td><td>Name </td><td>Title </td><td>Roll</td><td>Action</td></tr>
+	
+		<tr>
+			<td>
+				{{ data.id }}
+			</td>
+			<td> 
+				{{data.name}}
+			</td>
+			<td>
+				{{ data.address }}
+			</td>
+			<td>
+				{{data.roll}}
+			</td>
+			<td>
+				
+				<a href="{% url 'c1:delete' data.id %}">Delete</a>
+				<a href="{% url 'c1:update' data.id %}"> Update</a>
+
+			</td>
+		</tr>
+	
+</table>
+</body>
+</html>

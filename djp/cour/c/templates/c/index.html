@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> THis is tile views</title>
+</head>
+<body>
+		<a href="{% url 'c:create_te'%}">Ad new</a>
+		{% if data %}
+			<table border=1 style="border-collapse: collapse;"> 
+				<tr><th>ID</th><th> Name</th><th>Address</th><th> Age</th><th>Action</th></tr>
+			{% for a in data %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td> {{a.name}}</td>
+					<td>{{a.address}}</td>
+					<td> {{a.age }}</td>
+					<td><a href="{% url 'c:show_detail' a.id %}">View</a>
+					<a href="{% url 'c:delete' a.id %}">Delete</a>
+					<a href="{% url 'c:update' a.id %}">Update</a></td>
+
+				</tr>
+			{% endfor %}
+		</table>
+		{% endif %}
+</body>
+</html>

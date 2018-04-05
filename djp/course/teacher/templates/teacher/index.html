@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>THis is title page </title>
+</head>
+<body>
+	<h2>Hello you are in template now so go first</h2>
+
+	<a href="{% url 'teacher:create'%}">Add new</a>
+		{% if flag %}
+			{% if data %}
+
+					<table border=1 style='border-collapse:collapse;'>
+						<tr>
+							<th> Id </th>
+							<th> Name </th>
+							<th> Title </th>
+							<th> age </th>
+							<th> Major </th>
+							<th> Action</th>
+						</tr>
+						{% for a in data%}
+
+						<tr>
+							<td>{{a.id}}</td>
+							<td> {{a.name}}</td>
+							<td> {{a.title}}</td>
+							<td> {{a.age}}</td>
+							<td> {{a.major}} </td>
+							<td>
+								<a href="{% url 'teacher:detail' a.id %}">View</a>
+								<a href="{% url 'teacher:update' a.id %}">Update</a>
+								<a href="{% url 'teacher:delete' a.id %}">Delete</a>
+
+
+							</td>
+
+
+
+						</tr>
+						{% endfor%}
+					</table>
+					
+			{% endif %}
+		{% elif not flag%}
+			<table border=1 style='border-collapse:collapse;'>
+						<tr>
+							<th> Id </th>
+							<th> Name </th>
+							<th> Title </th>
+							<th> age </th>
+							<th> Major </th>
+							<th> Action</th>
+						</tr>
+
+						<tr>
+							<td>{{data.id}}</td>
+							<td> {{data.name}}</td>
+							<td> {{data.title}}</td>
+							<td> {{data.age}}</td>
+							<td> {{data.major}} </td>
+							<td>
+								<a href="{% url 'teacher:detail' data.id %}">View</a>
+								<a href="{% url 'teacher:update' data.id %}">Update</a>
+								<a href="{% url 'teacher:delete' data.id %}">Delete</a>
+
+
+							</td>
+
+
+
+						</tr>
+				</table>
+		{% endif %}
+
+
+		
+			
+
+
+</body>
+</html>

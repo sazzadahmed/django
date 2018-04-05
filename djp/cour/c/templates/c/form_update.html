@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form method="post" action="{% url 'c:update_te' id %}" >
+	{% csrf_token %}
+	{% for a in form %}
+		{{a.label}}
+		{{a}}<br/><br/>
+		
+	{% endfor%}
+	<br/>
+	<input type="submit" value="click me">
+
+</form>
+</body>
+</html>>
+
+

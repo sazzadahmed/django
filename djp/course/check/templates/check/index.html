@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title> This is check page</title>
+	// rel='stylesheet' diya foroj
+	<link  rel="stylesheet" type="text/css" href="{% static 'check/index.css' %}" />
+</head>
+<body>
+
+
+	<a href ="{% url 'check:createform' %}"> Add New </a>
+		{% if data %}
+			<table border="1px" style="border-collapse: collapse;" >
+				<tr>
+					<th>ID</th>
+					<th> Name</th>
+					<th>Adress</th>
+					<th>Roll</th>
+					<th>Age</th>
+					<th> ACTION </th>
+				</tr>
+			
+			{% for a in data %}
+			<tr>
+				<td>{{ forloop.counter }}</td>
+				<td>{{a.name}}</td>
+				<td>{{a.address}}</td>
+				<td>{{a.roll}}</td>
+				<td>{{a.age}}</td>
+				<td> 
+				<a href="{% url 'check:singleview' a.id %}"> View</a>
+					<a href="{% url 'check:update' a.id %}">Update </a>
+					<a href="{% url 'check:delete' a.id %}">Delete</a>
+
+				</td>
+
+			</tr>
+				
+
+			{% endfor %}
+		</table>
+		{% endif %}
+
+		{% if singleview %}
+			<h2> This is showing Detail of single id </h2>
+			<a href="{% url 'check:index' %}"> Go home</a>
+		{% endif %}
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends "./base_generic.html" %}
+
+{%  block content %}
+	{% if data %}
+	<ul>
+		{% for a in data %}
+			<li><a href="{{a.get_absolute_url}}"> {{a.title}} </a>{{a.author}}</li>
+		{% endfor %}
+	{% endif %}
+	</ul>
+
+{% endblock %}
+
+
+
